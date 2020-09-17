@@ -13,5 +13,8 @@ namespace GigHub.ViewModels
         public string Time { get; set; }
         public byte Genre { get; set; } // genre id from user input
         public IEnumerable<Genre> Genres { get; set; } // for genre dropdown list from database
+        public DateTime DateTime {
+            get { return DateTime.Parse(string.Format("{0} {1}", Date, Time));} // return combined string in datetime format
+        }
     }
 }
