@@ -32,6 +32,7 @@ namespace GigHub.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken] // prevent CSRF attack
         public ActionResult Create(GigFormViewModel viewModel)
         {
             // below's method pay too many round of visits to the database so we avoid that

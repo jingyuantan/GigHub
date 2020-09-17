@@ -10,6 +10,7 @@
 <!--asp.net form, "create" = action, "gigs" = controller-->
 @using (Html.BeginForm("Create", "Gigs"))
 {
+    @Html.AntiForgeryToken() // prevent CSRF attack
     <div class="form-group">
         @Html.LabelFor(m => m.Venue) <!--m for model-->
         @Html.TextBoxFor(m => m.Venue, new { @class = "form-control" }) <!--add HTML class for styling purpose-->
