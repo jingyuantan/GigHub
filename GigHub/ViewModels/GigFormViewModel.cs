@@ -11,7 +11,7 @@ namespace GigHub.ViewModels
         public string Venue { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
-        public int Genre { get; set; } // genre id from user input
+        public byte Genre { get; set; } // genre id from user input
         public IEnumerable<Genre> Genres { get; set; } // for genre dropdown list from database
     }
 }
