@@ -40,10 +40,15 @@ namespace GigHub.Controllers
             var artist = _context.Users.Single(u => u.Id == artistId); // if match current user
             var genre = _context.Genres.Single(g => g.Id == viewModel.Genre); // if match user input (dropdown lsit of genre)*/
 
+            if (!ModelState.IsValid) {
+                viewModel.Genres = _context.Genres.ToList(); // if not valid, need to re-initialized whatever needed to be initialized in create() above
+                return View("Create", viewModel); // return to create gig page to fill in the form again if error
+            }
+
             var gig = new Gig
             {
                 ArtistId = User.Identity.GetUserId(),
-                DateTime = viewModel.DateTime,
+                DateTime = viewModel.GetDateTime(),
                 GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
             };
