@@ -41,3 +41,8 @@ textarea {
     color: black;
     background-color: #5eb4ff6b;
 }
+
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
